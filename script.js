@@ -1,6 +1,6 @@
 // ---------------------------==> All Imports <==------------------------------//
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAa5-hOZ4jbqU7KkK9m4-_ZIEKq8VmraHA",
@@ -16,7 +16,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 // ---------------------------==> Sign Up <==------------------------------//
-// const name = document.getElementById('name');
+
 
 
 // btn add event "click"
@@ -24,22 +24,24 @@ const btn = document.getElementById('btn');
 btn.addEventListener('click', signup);
 
 function signup() {
+    // const name = document.getElementById('name').value
     const email = document.getElementById('email').value;
-    const password = document.getElementById("password")
-    console.log('email==>',email) 
-    console.log('password1==>',password)
+    const password = document.getElementById("password").value
+    console.log('email==>', email)
+    console.log('password1==>', password)
+
+    // Firebase Code
+    createUserWithEmailAndPassword(auth,email, password)
+        .then((userCredential) => {
+            // Signed up 
+            const user = userCredential.user;
+            console.log('user==>', user)
+            // ...
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log("errorMessage==>", errorMessage)
+            // ..
+        });
 }
-
-// createUserWithEmailAndPassword(auth, email, password)
-//     .then((userCredential) => {
-//         // Signed up 
-//         const user = userCredential.user;
-//         // ...
-//     })
-//     .catch((error) => {
-//         const errorCode = error.code;
-//         const errorMessage = error.message;
-//         // ..
-//     });
-
-
