@@ -6,7 +6,9 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebas
 import {
     getAuth,
     createUserWithEmailAndPassword,
-    signInWithEmailAndPassword
+    signInWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -22,7 +24,19 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+// reload page alwase showing user email
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        userEmail.innerHTML = user.email
+    } else {
+        userEmail.innerHTML = user = ''
+    }
+});
+
 // ---------------------------==> Sign Up <==------------------------------//
+
+// View user email and userpassword
+const userEmail = document.getElementById('userEmail')
 
 // btn add event "click"
 const btn = document.getElementById('btn');
@@ -40,39 +54,45 @@ function signup() {
         .then((userCredential) => {
             // Signed up 
             const user = userCredential.user;
-            console.log('user==>', user)
+            userEmail.innerHTML = user.email
             // ...
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log("errorMessage==>", errorMessage)
-            // ..
+
         });
 }
 
 // ---------------------------==> Sign in <==------------------------------//
 
-// Sign in Elements
-const emailUp = document.getElementById('emailUp');
-const passwordUp = document.getElementById('passwordUp');
-const btnUp = document.getElementById('btnUp');
-
 // btnUp add click event
+const btnUp = document.getElementById('btnUp');
 btnUp.addEventListener('click', signin)
 
 function signin() {
+    const emailUp = document.getElementById('emailUp').value
+    const passwordUp = document.getElementById('passwordUp').value
+
+
     signInWithEmailAndPassword(auth, emailUp, passwordUp)
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
+            userEmail.innerHTML = user.email
+            userEmail.style.color = "green"
             console.log(user)
             // ...
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
+            userEmail.innerHTML = errorCode;
+            userEmail.style.color = "red"
             console.log(errorMessage)
         });
-
 }
+
+// ---------------------------==> Sign out <==------------------------------//
+
