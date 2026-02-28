@@ -16,7 +16,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 // ---------------------------==> Sign Up <==------------------------------//
-const name = document.getElementById('name');
+// const name = document.getElementById('name');
 
 
 // btn add event "click"
@@ -25,9 +25,9 @@ btn.addEventListener('click', signup);
 
 function signup() {
     const email = document.getElementById('email').value;
-    const password1 = document.getElementById('password1');
-    console.log(email)
-    console.log(password1)
+    const password = document.getElementById("password")
+    console.log('email==>',email) 
+    console.log('password1==>',password)
 }
 
 // createUserWithEmailAndPassword(auth, email, password)
