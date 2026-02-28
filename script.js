@@ -3,7 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebas
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
 
 const firebaseConfig = {
-    apiKey: process.env.API_KEY
+    apiKey: process.env.API_KEY,
     authDomain: "sir-ibrahim-website-clone.firebaseapp.com",
     projectId: "sir-ibrahim-website-clone",
     storageBucket: "sir-ibrahim-website-clone.firebasestorage.app",
