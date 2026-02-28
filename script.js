@@ -1,6 +1,7 @@
 // ---------------------------==> All Imports <==------------------------------//
 import dotenv from "dotenv";
 dotenv.config();
+console.log(process.env.API_KEY)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
 
