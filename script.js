@@ -1,7 +1,6 @@
 // ---------------------------==> All Imports <==------------------------------//
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
-import { getAuth } from "firebase/auth";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAa5-hOZ4jbqU7KkK9m4-_ZIEKq8VmraHA",
@@ -17,34 +16,30 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 // ---------------------------==> Sign Up <==------------------------------//
-const btn = document.getElementById('btn');
 const name = document.getElementById('name');
 
 
 // btn add event "click"
-btn.addEventListener('click', signup());
+const btn = document.getElementById('btn');
+btn.addEventListener('click', signup);
 
 function signup() {
-    const email = document.getElementById('email').value
-    const password = document.getElementById('password').value
+    const email = document.getElementById('email').value;
+    const password1 = document.getElementById('password1');
     console.log(email)
-    console.log(password)
+    console.log(password1)
 }
 
-
-
-
-
-createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-        // Signed up 
-        const user = userCredential.user;
-        // ...
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
-    });
+// createUserWithEmailAndPassword(auth, email, password)
+//     .then((userCredential) => {
+//         // Signed up 
+//         const user = userCredential.user;
+//         // ...
+//     })
+//     .catch((error) => {
+//         const errorCode = error.code;
+//         const errorMessage = error.message;
+//         // ..
+//     });
 
 
