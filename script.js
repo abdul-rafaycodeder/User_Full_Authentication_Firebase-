@@ -7,8 +7,8 @@ import {
     getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    signOut,
-    onAuthStateChanged
+    onAuthStateChanged,
+    signOut
 } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -29,7 +29,7 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         userEmail.innerHTML = user.email
     } else {
-        userEmail.innerHTML = user = ''
+
     }
 });
 
@@ -96,3 +96,16 @@ function signin() {
 
 // ---------------------------==> Sign out <==------------------------------//
 
+// SignOut button
+const logout = document.getElementById('logout');
+
+// SignOut button add event
+logout.addEventListener('click', logout);
+
+function logout() {
+    signOut(auth).then(() => {
+        alert('Sign-out successful');
+    }).catch((error) => {
+alert('nahi')
+    });
+}
