@@ -100,12 +100,13 @@ function signin() {
 const logout = document.getElementById('logout');
 
 // SignOut button add event
-logout.addEventListener('click', logout);
+logout.addEventListener('click', logoutFunction);
 
-function logout() {
+function logoutFunction() {
     signOut(auth).then(() => {
         alert('Sign-out successful');
+        userEmail.innerHTML = ''
     }).catch((error) => {
-alert('nahi')
+        alert('nahi')
     });
 }
