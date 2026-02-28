@@ -27,10 +27,6 @@ input {
     padding: 0.5em;
 }
 
-input:focus{
-    border-radius: 3px;
-}
-
 button {
     border: none;
     border-radius: 5px;
