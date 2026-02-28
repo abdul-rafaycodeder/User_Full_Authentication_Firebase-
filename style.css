@@ -21,9 +21,10 @@ body{
     gap: 1em;
 }
 
+
 input {
     border-radius: 3px;
-    border: none;
+    
     padding: 0.5em;
 }
 

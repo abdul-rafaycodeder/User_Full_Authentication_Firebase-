@@ -53,8 +53,24 @@ function signup() {
 
 // ---------------------------==> Sign in <==------------------------------//
 
-const nameup = document.getElementById('nameup');
+// Sign in Elements
 const emailUp = document.getElementById('emailUp');
 const passwordUp = document.getElementById('passwordUp');
 const btnUp = document.getElementById('btnUp');
 
+// btnUp add click event
+btnUp.addEventListener('click', signin)
+
+function signin() {
+    signInWithEmailAndPassword(auth, emailUp, passwordUp)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            // ...
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+        });
+
+}
