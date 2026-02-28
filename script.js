@@ -53,3 +53,8 @@ function signup() {
 
 // ---------------------------==> Sign in <==------------------------------//
 
+const nameup = document.getElementById('nameup');
+const emailUp = document.getElementById('emailUp');
+const passwordUp = document.getElementById('passwordUp');
+const btnUp = document.getElementById('btnUp');
+
