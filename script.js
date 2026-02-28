@@ -1,5 +1,9 @@
+// ---------------------------==> All Imports <==------------------------------//
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
 import { getAuth } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyAa5-hOZ4jbqU7KkK9m4-_ZIEKq8VmraHA",
@@ -13,4 +17,16 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
- 
+
+// ---------------------------==> Sign Up <==------------------------------//
+createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        // Signed up 
+        const user = userCredential.user;
+        // ...
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+    });
