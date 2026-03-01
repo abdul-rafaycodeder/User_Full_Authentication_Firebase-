@@ -1,90 +1,135 @@
 * {
-    padding: 0%;
-    margin: 0%;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
-}
-
-#main {
-    background-color: aqua;
-    width: 300px;
-    height: px;
-    margin: auto;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #15061d, #2a0d3f);
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    gap: 1em;
 }
 
+.container {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Card Design */
+.card {
+    background: #ffffff;
+    padding: 35px;
+    width: 320px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h1 {
+    font-size: 22px;
+    text-align: center;
+}
+
+.card p {
+    text-align: center;
+    color: gray;
+    margin-bottom: 10px;
+}
 
 input {
-    border-radius: 3px;
-
-    padding: 0.5em;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: 0.3s;
 }
 
+input:focus {
+    border-color: #6c5ce7;
+    box-shadow: 0 0 5px rgba(108, 92, 231, 0.4);
+}
+
+/* Buttons */
 button {
+    padding: 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    background: #6c5ce7;
     color: white;
-    background-color: blue;
-    padding: 0.5em;
-    margin-top: 1em;
-    transition: all ease-in-out 0.5s;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
 button:hover {
-    background-color: rgb(0, 0, 57);
+    background: #4834d4;
 }
 
-/*  Continue with Google Button */
+.logout-btn {
+    background: crimson;
+}
 
-.login-container {
+.logout-btn:hover {
+    background: darkred;
+}
+
+/* Google Section */
+.google-container {
     background: #ffffff;
-    padding: 40px 35px;
+    padding: 30px;
+    width: 320px;
     border-radius: 15px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-align: center;
-    width: 350px;
 }
 
-.login-container h2 {
-    margin-bottom: 25px;
-    color: #333;
+.google-container h2 {
+    margin-bottom: 20px;
 }
 
 .google-btn {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ffffff;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    background: #7e6a6a;
+    background: #080000;
     cursor: pointer;
     font-size: 15px;
     font-weight: 500;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    transition: all 0.3s ease;
+    gap: 10px;
+    transition: 0.3s ease;
 }
 
 .google-btn img {
     width: 20px;
-    height: 20px;
 }
 
 .google-btn:hover {
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.739);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
     transform: translateY(-2px);
 }
 
-.google-btn:active {
-    transform: scale(1);
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
 }
+
