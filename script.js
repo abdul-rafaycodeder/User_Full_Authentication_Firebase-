@@ -8,7 +8,12 @@ import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     onAuthStateChanged,
-    signOut
+    signOut,
+    GoogleAuthProvider,
+    signInWithPopup,
+    // GithubAuthProvider,
+    // signInWithPopup
+    // GoogleAuthProvider
 } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -110,3 +115,69 @@ function logoutFunction() {
         alert('nahi')
     });
 }
+
+// ---------------------------==> Contineu with google <==------------------------------//
+// firebase google funtion provider
+const provider = new GoogleAuthProvider();
+
+// googel button
+const googlebtn = document.getElementById('google');
+
+// google btn add event
+googlebtn.addEventListener('click', google);
+
+// Contineu with google
+function google() {
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            // The signed-in user info.
+            const user = result.user;
+            // IdP data available using getAdditionalUserInfo(result)
+            // ...
+        }).catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // The email of the user's account used.
+            const email = error.customData.email;
+            // The AuthCredential type that was used.
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            // ...
+        });
+}
+
+// ---------------------------==> Contineu with google <==------------------------------//
+// // firebase github funtion provider
+// const providerr = new GoogleAuthProvider();
+
+// // googel button
+// const githubBtn = document.getElementById('github');
+
+// // google btn add event
+// githubBtn.addEventListener('click', github);
+
+// function github() {
+//     signInWithPopup(auth, provider)
+//         .then((result) => {
+//             // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+//             const credential = GithubAuthProvider.credentialFromResult(result);
+//             const token = credential.accessToken;
+
+//             // The signed-in user info.
+//             const user = result.user;
+//             // IdP data available using getAdditionalUserInfo(result)
+//             // ...
+//         }).catch((error) => {
+//             // Handle Errors here.
+//             const errorCode = error.code;
+//             const errorMessage = error.message;
+//             // The email of the user's account used.
+//             const email = error.customData.email;
+//             // The AuthCredential type that was used.
+//             const credential = GithubAuthProvider.credentialFromError(error);
+//             // ...
+//         });
+// }
